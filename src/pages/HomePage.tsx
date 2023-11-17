@@ -1,23 +1,12 @@
 import { useState } from "react";
 
 export default function HomePage() {
-  const [count, setCount] = useState<number>(0);
-
   return (
     <>
       {/* Top Bar */}
       <TopBar />
       <main className="container mx-auto mt-16">
-        <div className="flex flex-col items-center pt-16">
-          <div className="text-3xl">Hello, Vite</div>
-          <button
-            className="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full"
-            onClick={() => setCount((prev) => prev + 1)}
-          >
-            Increment
-          </button>
-          <div>Clicks: {count}</div>
-        </div>
+        {/* <CustomersButton /> */}
       </main>
     </>
   );
@@ -32,5 +21,24 @@ function TopBar() {
         </div>
       </div>
     </section>
+  );
+}
+
+function CustomersButton() {
+  const [count, setCount] = useState<number>(0);
+
+  return (
+    <div className="flex flex-col items-center space-y-2 py-2 ">
+      <div className="text-3xl">Satisfied Customers</div>
+      <div className="flex max-w-sm w-28 justify-between">
+        <div className="text-4xl"> {count}</div>
+        <button
+          className="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full"
+          onClick={() => setCount((prev) => prev + 1)}
+        >
+          +1
+        </button>
+      </div>
+    </div>
   );
 }
